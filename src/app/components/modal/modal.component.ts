@@ -28,12 +28,13 @@ export class ModalComponent {
     this.modalRef = this.modalService.open(this.modal, {
       ariaLabelledBy: 'modal-component',
       centered: true,
-      size: this.size ?? 'md',
+      size: this.size ?? 'xl',
     });
   }
 
   public hide() {
     this.modalRef?.dismiss();
   }
+  
 
 }

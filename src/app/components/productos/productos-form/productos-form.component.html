@@ -1,0 +1,77 @@
+
+<form class="container">
+  <div>
+    <h2>{{ action }}</h2>
+  </div>
+  <div class="row">
+
+    <div class="col-6">
+      <input #nombre="ngModel" type="text" class="form-control" id="nombre" name="nombre" 
+        placeholder="Name"
+        [(ngModel)]="producto.nombre" 
+        [ngClass]="{ 
+          'is-invalid': nombre.invalid && nombre.touched,
+          'is-valid': nombre.valid && nombre.touched
+        }" 
+        required 
+      />
+      
+    <div class="col-6 mb-2">
+      <input #cantidad_stock="ngModel" type="text" class="form-control" id="cantidad_stock" name="cantidad_stock" 
+        placeholder="Stock Quantity"
+        [(ngModel)]="producto.cantidadStock" 
+        [ngClass]="{ 
+          'is-invalid': cantidad_stock.invalid && cantidad_stock.touched,
+          'is-valid': cantidad_stock.valid && cantidad_stock.touched
+        }" 
+        required 
+      />
+    </div>
+    
+    <div class="col-6 mb-2">
+      <input #descripcion="ngModel" type="text" class="form-control" id="descripcion" name="descripcion" 
+        placeholder="Product Description"
+        [(ngModel)]="producto.descripcion" 
+        [ngClass]="{ 
+          'is-invalid': descripcion.invalid && descripcion.touched,
+          'is-valid': descripcion.valid && descripcion.touched
+        }" 
+        required 
+      />
+    </div>
+
+    <div class="col-6 mb-2">
+      <input #precio="ngModel" type="text" class="form-control" id="precio" name="precio" 
+        placeholder="Product Price"
+        [(ngModel)]="producto.precio" 
+        [ngClass]="{ 
+          'is-invalid': precio.invalid && precio.touched,
+          'is-valid': precio.valid && precio.touched
+        }" 
+        required 
+      />
+    </div>
+
+    <div class="col-6 mb-2">
+      <input #categoria_id="ngModel" type="text" class="form-control" id="categoria_id" name="categoria_id" 
+        placeholder="Product Category"
+        [ngModel]="getCategoriaId()"
+        [ngClass]="{ 
+          'is-invalid': categoria_id.invalid && categoria_id.touched,
+          'is-valid': categoria_id.valid && categoria_id.touched
+        }" 
+        required 
+      />
+    </div>
+
+    </div>
+    <div class="col-6">
+      <button
+      (click)="callEvent();"
+      type="button"
+      class="btn btn-primary d-flex align-items-center">
+      <p class="mb-0"> {{action}} </p>
+    </button>
+    </div>
+  </div>
+</form>
