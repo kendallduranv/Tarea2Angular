@@ -64,7 +64,7 @@ export const routes: Routes = [
             IRoleType.superAdmin,
             IRoleType.user
           ],
-          showInSidebar: true,
+          showInSidebar: false,
           name: 'Dashboard'
         }
       },

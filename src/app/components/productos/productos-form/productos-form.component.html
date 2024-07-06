@@ -56,6 +56,7 @@
       <input #categoria_id="ngModel" type="text" class="form-control" id="categoria_id" name="categoria_id" 
         placeholder="Product Category"
         [ngModel]="getCategoriaId()"
+        (ngModelChange)="setCategoriaId($event)"
         [ngClass]="{ 
           'is-invalid': categoria_id.invalid && categoria_id.touched,
           'is-valid': categoria_id.valid && categoria_id.touched

@@ -23,6 +23,7 @@ export class CategoriasListComponent implements OnChanges{
   public selectedItem: ICategorias = {};
   public categoriasService: CategoriasService = inject(CategoriasService);
 
+
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['areActionsAvailable']) {
       console.log('areActionsAvailable', this.areActionsAvailable);

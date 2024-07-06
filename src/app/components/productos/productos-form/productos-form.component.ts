@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductFormComponent {
   @Input() producto: IProductos =  {
-    categoria: {} as ICategorias
+    categoria: {id: undefined} as ICategorias
   };
   @Input() action = '';
   @Output() callParentEvent: EventEmitter<IProductos> = new EventEmitter<IProductos>()
@@ -28,6 +28,18 @@ export class ProductFormComponent {
 
   getCategoriaId(): any  {
     return this.producto.categoria ? this.producto.categoria.id || '' : '';
+  }
+
+  // getCategoriaId(): number | undefined {
+  //   return this.producto.categoria ? this.producto.categoria.id : undefined;
+  // }
+
+  setCategoriaId(value: string) {
+    if (this.producto.categoria) {
+      this.producto.categoria.id = Number(value);
+    } else {
+      this.producto.categoria = { id: Number(value) } as ICategorias;
+    }
   }
 
 }
