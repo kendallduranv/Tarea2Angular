@@ -13,17 +13,21 @@ export class UserService extends BaseService<IUser> {
     return this.userListSignal;
   }
   getAllSignal() {
+    debugger;
     this.findAll().subscribe({
       next: (response: any) => {
         response.reverse();
         this.userListSignal.set(response);
+        debugger;
       },
       error: (error: any) => {
+        debugger;
         console.error('Error fetching users', error);
       }
     });
   }
   saveUserSignal (user: IUser): Observable<any>{
+    debugger
     return this.add(user).pipe(
       tap((response: any) => {
         this.userListSignal.update( users => [response, ...users]);
